@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+html, body {
+  @apply font-roboto;
+}
+
+.app {
+    
+    &-header {
+        @apply px-8 py-5 w-screen flex flex-row items-center bg-red-500  ;
+    }
+
+    &-logo {
+        @apply w-24 h-24 ;
+    }
+
+    &-container {
+        @apply px-8 py-4 w-screen ;
+    }
+
+    &-title {
+        @apply px-5 py-4 text-3xl font-bold text-red-500 ;
+    }
+
+    &-rounded{
+        @apply rounded-full ;
+    }
+
+    &-post {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        height: auto;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+        &-bord {
+            width : 60px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-logo {
+            width : 50px;
+            height: 50px;
+            border: 0.5px solid black;
+        }
+        &-container {
+            width:450px;
+            line-height: 20px;
+        }
+
+        &-head {
+            display: flex;
+            flex: row;
+            padding: 5px 0;
+        }
+
+        &-name {
+            font-weight: 600;
+            width: fit-content;
+            margin-right: 10px;
+        }
+
+        &-date {
+            width: fit-content;
+        }
+        
+    }
+}
