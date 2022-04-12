@@ -1,23 +1,4 @@
 const express = require('express');
-const { Sequelize } = require('sequelize');
-
-// Connection to MariaDB
-/* const sequelize = new Sequelize('groupamania', 'root', 'Dzq89HYggjkpl52f8D9Q1POAZTF', {
-    host: 'localhost',
-    dialect: 'mariadb'
-});
-
-
-(async () => {
-    try {
-        await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-})(); */
-
-
 
 // iMPORTE ROUTES
 const userRoutes = require('./routes/user');
@@ -46,9 +27,12 @@ app.use((req, res, next) => {
 });
 
 // ENREGISTRE ROUTER POUR TOUTE DEMANDE API 
-app.use('/api/auth', userRoutes);
-app.use("/api/posts", postRoutes);
+app.use('/auth', userRoutes);
+app.use("/posts", postRoutes);
 // app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
-module.exports = app;
+module.exports = {
+    path: '/api',
+    handler: app
+  }

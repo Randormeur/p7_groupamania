@@ -6,6 +6,10 @@ module.exports = {
     animation: false,
     textOpacity: false,
   },
+  content: [
+    './pages/**/*.{vue,js}',
+    './components/**/*.{vue,js}',
+  ],
   theme: {
     extend: {
       colors: {

@@ -7,6 +7,13 @@
         <div class="app-search">
         </div>
         <div class='app-user-menu'>
+            <div >
+                 <v-btn text>Logout</v-btn>
+            </div>
+            <div>
+                <v-btn text to="">Login</v-btn>
+                <v-btn text to="">Register</v-btn>
+            </div>
         </div>
     </header>
     <nuxt/>

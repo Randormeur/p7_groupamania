@@ -1,7 +1,13 @@
 {
   "name": "groupamania",
   "dependencies": {
-    "nuxt": "^2.15.8"
+    "@nuxtjs/axios": "^5.13.6",
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^3.0.0",
+    "nuxt": "^2.15.8",
+    "sequelize": "^6.18.0"
   },
   "scripts": {
     "dev": "nuxt",
