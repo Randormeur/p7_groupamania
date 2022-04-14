@@ -3,7 +3,8 @@
         <div class="app-title">
             <h1>Bienvenue sur le site Groupamania</h1>
         </div>
-        <ModeArticle/>
+        <AllPost :posts="posts"/>
+        
     </div>
 </template>
 
@@ -18,6 +19,13 @@ export default {
                 content: "Voici la page d'accueil",
                 hid: 'description'
             }]
+        }
+    },
+     
+    async asyncData(context){
+        const {data} = await context.$axios.get('/posts')
+        return {
+        posts : data
         }
     },
 }

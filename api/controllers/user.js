@@ -56,3 +56,20 @@ exports.login = (req, res, next) => {
     })
     .catch(error => res.status(500).json({ error }));
 };
+
+exports.user = function(req, res) {
+  var token = req.headers.authorization
+  if (token) {
+    // verifies secret and checks if the token is expired
+    jwt.verify(token.replace(/^Bearer\s/, ''),  process.env.secretToken, function(err, decoded) {
+      if (err) {
+        return res.status(401).json({message: 'unauthorized'})
+      } else {
+        return res.json({ user: decoded })
+      }
+    });
+  }
+  else{
+    return res.status(401).json({message: 'unauthorized'})
+  }
+}

@@ -5,14 +5,15 @@
             <img src="/images/LogoS/icon-above-font.png" class="app-logo app-rounded"/>
         </div>
         <div class="app-search">
+            <nuxt-link  to="/">Home</nuxt-link>
         </div>
         <div class='app-user-menu'>
-            <div >
-                 <v-btn text>Logout</v-btn>
+            <div v-if="$auth.loggedIn">
+                <nuxt-link to="/logout" >Logout</nuxt-link>
             </div>
-            <div>
-                <v-btn text to="">Login</v-btn>
-                <v-btn text to="">Register</v-btn>
+            <div v-if="!$auth.loggedIn">
+                <nuxt-link  to="/login">Login</nuxt-link>
+                <nuxt-link  to="/signup">Sign Up</nuxt-link>
             </div>
         </div>
     </header>
