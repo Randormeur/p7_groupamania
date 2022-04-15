@@ -3,8 +3,7 @@
     <h1>Se connecter</h1>
     <hr>
 
-    <div class="alert alert-success"
-      v-if="$route.params.registered=='yes'">You have registered successfully</div>
+   
 
     <div class="">
       <div class="">
@@ -17,9 +16,7 @@
             <input type="text" class=""
               :class="{ 'is-invalid': errors && errors.email }"
               v-model="email">
-            <div class="k" v-if="errors && errors.email">
-              {{ errors.email.msg }}
-            </div>
+            
           </div>
 
           <div class="">
@@ -27,13 +24,10 @@
             <input type="password" class=""
               :class="{ 'is-invalid': errors && errors.password }"
               v-model="password">
-            <div class="" v-if="errors && errors.password">
-              {{ errors.password.msg }}
-            </div>
+            
           </div>
 
-          <div class="alert alert-danger"
-            v-if="login_error">{{ login_error }}</div>
+         
 
           <input type="submit" value="Login" class="">
           <nuxt-link to="/" class="">Cancel</nuxt-link>
@@ -65,7 +59,7 @@ export default {
             password: this.password
           }
         })
-        .then(() => this.$toast.success('Logged In!'))
+        .then(() => console.log('Logged In!'))
         .catch( (error) => {
           console.log(error)
           if(error.response.data.message){

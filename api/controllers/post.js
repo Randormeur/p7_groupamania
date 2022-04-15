@@ -1,17 +1,16 @@
 const Post = require ('../models/Post');
 
 exports.createPost = (req, res, next) => {
-    console.log(req.auth)
-    return  Post.create({
-        
-        userid: req.body.userid,
+   
+      Post.create({
         title: req.body.title,
-        content: req.body.content,
+        comment: req.body.content,
         image: req.body.image,
-        image_desc: req.body.image_desc
+        image_desc: req.body.image_desc,
+        userid: req.body.userid
     })
     .then(() => res.status(201).json({ message: 'Post créé !' }))
-    .catch(error => res.status(400).json({ error }));
+    .catch(error => res.status(400).json({ error, message: 'Blem!' }));
        
 };
 

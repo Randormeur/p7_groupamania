@@ -11,6 +11,7 @@ exports.signup = (req, res, next) => {
         .then(hash => {
             
             User.create({
+            userid: req.body.userid,
             email: req.body.email,
             password: hash,
             name: req.body.name,
@@ -43,7 +44,7 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             userId: user.id,
             token: jwt.sign(
-                { userId: user._id },
+                { userId: user.id },
                  process.env.secretToken,
                 { expiresIn: '24h' }
               )

@@ -18,7 +18,7 @@ const postCtrl = require ('../controllers/post');
 // Route Affichage de toutes les sauces
 router.get('/', postCtrl.getAllPost);
 // Route Creation d'une sauce
-router.post('/', auth,postCtrl.createPost);
+router.post('/', auth, postCtrl.createPost);
 // Route Affichage d'une sauce
 router.get('/:id', auth, postCtrl.getOnePost);
 // Route Modification d'une sauce

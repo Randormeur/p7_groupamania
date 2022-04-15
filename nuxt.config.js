@@ -8,9 +8,11 @@ export default {
         bodyAttrs:{
             class: ["main"]
         },
-        meta: [{
-            charset: "utf-8",
-        }]
+        meta: [
+            {charset: "utf-8"},
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        
+    ]
     },
     router: {
         prefetchLinks: false
@@ -18,7 +20,7 @@ export default {
     plugins:[],
     modules:[
         '@nuxtjs/axios',
-        '@nuxtjs/auth'
+        '@nuxtjs/auth-next'
     ],
     axios: {
         //baseURL: process.env.API_URL
@@ -60,13 +62,17 @@ export default {
                         propertyName: 'user'
                     }
                 },
-                tokenRequired: true,
-                tokenType: "Bearer"
+                token: {
+                    property: 'token',
+                    global: true,
+                    required: true,
+                    type: "Bearer"
+                },
             }
         },
         redirect: {
               login: '/login', // User will be redirected to this path if login is required
-              logout: '/', // User will be redirected to this path if after logout, current route is protected
+              logout: '/', // User will be redirected to this path if after logout, current route is protectednpm
               home: '/' // User will be redirect to this path after login if accessed login page directly
         },
         rewriteRedirects: true,}

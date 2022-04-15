@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h1> Liste des posts</h1>
-        <div class="app-post" v-for="post in posts">
-            <div class="app-post-bord">
+  <div>
+    <h1>Post Details</h1>
+
+    <div class="app-post-bord">
                 <img src="/images/LogoS/icon-above-font.png" class="app-post-logo app-rounded"/>
             </div>
             <div class="app-post-container">
@@ -19,23 +19,23 @@
                     <button>like</button>
                 </div>
             </div>
-        </div>
-    </div>
-        
+  </div>
 </template>
 
 <script>
 import newDate from '~/utils/newDate'
+
 export default {
-   
+
+  middleware: 'auth',
   async asyncData(context){
-    const {data} = await context.$axios.get('/posts')
+    const {data} = await context.$axios.get('posts' + context.route.params.id)
     return {
-      posts : data
+      post : data
     }
   },
-  methods: {
-      newDate,
+  methods:{
+    newDate,
   }
 }
 </script>

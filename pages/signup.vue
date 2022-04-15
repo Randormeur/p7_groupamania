@@ -14,9 +14,7 @@
             <input type="text" class="form-control"
               :class="{ 'is-invalid': errors && errors.name }"
               v-model="name">
-            <div  v-if="errors && errors.name">
-              {{ errors.name.msg }}
-            </div>
+           
           </div>
 
           <div >
@@ -24,9 +22,7 @@
             <input type="text" 
               :class="{ 'is-invalid': errors && errors.email }"
               v-model="email">
-            <div  v-if="errors && errors.email">
-              {{ errors.email.msg }}
-            </div>
+            
           </div>
 
           <div >
@@ -34,9 +30,7 @@
             <input type="password" class="form-control"
               :class="{ 'is-invalid': errors && errors.password }"
               v-model="password">
-            <div class="invalid-feedback" v-if="errors && errors.password">
-              {{ errors.password.msg }}
-            </div>
+            
           </div>
 
           <input type="submit" value="Register">
