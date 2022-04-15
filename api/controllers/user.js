@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken');
 const User = require ('../models/User');
 const sequelize = require('../utils/database');
 
-require('dotenv').config();
-
 
 // ENREGISTREMENT DE NOVUEAU UTILISATEUR
 
@@ -12,20 +10,19 @@ exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             
-            return  User.create({
+            User.create({
             email: req.body.email,
             password: hash,
             name: req.body.name,
             age: req.body.age
             })
-            .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
+            .then(result => res.status(201).json({ message: 'utilisateur créé', _id: result.id}))
             .catch(error => res.status(400).json({ error }));
             
         }
         )
         .catch(error => res.status(400).json({ error : "meme pas hash" }));
         
-
 };
 
 exports.login = (req, res, next) => {

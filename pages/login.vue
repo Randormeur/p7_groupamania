@@ -1,33 +1,33 @@
 <template>
   <div>
-    <h1>Login</h1>
+    <h1>Se connecter</h1>
     <hr>
 
     <div class="alert alert-success"
       v-if="$route.params.registered=='yes'">You have registered successfully</div>
 
-    <div class="row">
-      <div class="col-md-6">
+    <div class="">
+      <div class="">
         <form action=""
           method="post"
           @submit.prevent="submitForm()">
 
-          <div class="form-group">
+          <div class="">
             <label for="">Email</label>
-            <input type="text" class="form-control"
+            <input type="text" class=""
               :class="{ 'is-invalid': errors && errors.email }"
               v-model="email">
-            <div class="invalid-feedback" v-if="errors && errors.email">
+            <div class="k" v-if="errors && errors.email">
               {{ errors.email.msg }}
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="">
             <label for="">Password</label>
-            <input type="password" class="form-control"
+            <input type="password" class=""
               :class="{ 'is-invalid': errors && errors.password }"
               v-model="password">
-            <div class="invalid-feedback" v-if="errors && errors.password">
+            <div class="" v-if="errors && errors.password">
               {{ errors.password.msg }}
             </div>
           </div>
@@ -35,8 +35,8 @@
           <div class="alert alert-danger"
             v-if="login_error">{{ login_error }}</div>
 
-          <input type="submit" value="Login" class="btn btn-primary mr-3">
-          <nuxt-link to="/" class="btn btn-secondary mr-3">Cancel</nuxt-link>
+          <input type="submit" value="Login" class="">
+          <nuxt-link to="/" class="">Cancel</nuxt-link>
 
         </form>
       </div>

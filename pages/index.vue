@@ -3,7 +3,15 @@
         <div class="app-title">
             <h1>Bienvenue sur le site Groupamania</h1>
         </div>
-        <AllPost :posts="posts"/>
+        <div v-if="!$auth.loggedIn">
+            <nuxt-link to="/signup">Créer un nouveau compte</nuxt-link>
+            <nuxt-link to="/login">Se connecter</nuxt-link>
+        </div>
+        
+        <div v-if="$auth.loggedIn">
+            <AllPost :posts="posts"/>
+        </div>
+        
         
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Register</h1>
+    <h1>Créer un nouveau compte</h1>
     <hr>
 
     <div >
@@ -71,7 +71,7 @@ export default {
         .then((response) => {
           console.log(response)
           if(response.data._id){
-            this.$router.push({ name:'user-login', params:{ registered:'yes' } })
+            this.$router.push({ name:'login', params:{ registered:'yes' } })
             // log in if successfully registered
             this.$auth.loginWith('local', {
                 data: {
