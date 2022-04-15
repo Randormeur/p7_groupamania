@@ -54,7 +54,7 @@ export default {
   methods:{
     submitForm(){
       
-      this.$axios.post( 'http://localhost:3000/api/posts', {
+      this.$axios.post( '/posts', {
           title: this.title,
           content: this.content,
           image: this.image,

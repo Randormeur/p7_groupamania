@@ -7,9 +7,12 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.secretToken);
     // verify transforme en donnée js basique
     const userId = decodedToken.userId;
-    console.log(userId);
+    console.log("auth" + userId);
+    console.log("auth" + req.body.userid)
     // userId raccourci JS de userId: userId
     req.auth = {userId};
+    
+    console.log(req.body.title + req.body.content + req.body.userid)
     // VERIFICATION USER ID BODY correspond à user id
     if (req.body.userid && req.body.userid !== userId) {
       throw 'Invalid user ID';

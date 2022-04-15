@@ -1,16 +1,15 @@
 const Post = require ('../models/Post');
+const sequelize = require('../utils/database');
 
 exports.createPost = (req, res, next) => {
-   
-      Post.create({
-        title: req.body.title,
-        comment: req.body.content,
-        image: req.body.image,
-        image_desc: req.body.image_desc,
-        userid: req.body.userid
+  const post = Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      userid: req.body.userid
     })
+    return post
     .then(() => res.status(201).json({ message: 'Post créé !' }))
-    .catch(error => res.status(400).json({ error, message: 'Blem!' }));
+    .catch(error => res.status(400).json({  message: 'Blem!' }));
        
 };
 

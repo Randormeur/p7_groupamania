@@ -63,8 +63,6 @@ export default {
                     }
                 },
                 token: {
-                    property: 'token',
-                    global: true,
                     required: true,
                     type: "Bearer"
                 },
